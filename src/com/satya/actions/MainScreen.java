@@ -6,38 +6,71 @@ import com.opensymphony.xwork2.ActionSupport;
 public class MainScreen extends ActionSupport {
 	
 	private int enteredNumber;
-	private static int total;
+	private static int total = 10;
+	private static int brakePads = 25;
+	private static int axleShaft = 27;
+	private static int engine = 30;
+	private static int clutch = 52;
+	private static int alternator = 70;
+	private static int suspension = 90;
 
 	@Override
 	public String execute() throws Exception {
-		CalculationService calculationService = new CalculationService();
-		System.out.println("before: " +total);
-		int now =  calculationService.add(total, enteredNumber);
-		
-		total = now;
-		System.out.println("after: " +total);
+//		CalculationService calculationService = new CalculationService();
+//		//System.out.println("before: " +total);
+//		int now =  calculationService.add(total, enteredNumber);
+//		
+//		total = now;
+		//System.out.println("after: " +total);
 		return SUCCESS;
 	}
 
-	public int getEnteredNumber() {
-		return enteredNumber;
+	public int getBrakePads() {
+		return brakePads;
 	}
 
-	public void setEnteredNumber(int enteredNumber) {
-		this.enteredNumber = enteredNumber;
+	public void setBrakePads(int brakePads) {
+		this.brakePads = brakePads;
 	}
 
-	public int getTotal() {
-		return total;
+	public int getAxleShaft() {
+		return axleShaft;
 	}
 
-	public void setTotal(int total) {
-		this.total = total;
+	public void setAxleShaft(int axleShaft) {
+		this.axleShaft = axleShaft;
 	}
-	
-	public String getMaxTotal()
-	{
-		return getText("max.text");
+
+	public int getEngine() {
+		return engine;
+	}
+
+	public void setEngine(int engine) {
+		this.engine = engine;
+	}
+
+	public int getClutch() {
+		return clutch;
+	}
+
+	public void setClutch(int clutch) {
+		this.clutch = clutch;
+	}
+
+	public int getAlternator() {
+		return alternator;
+	}
+
+	public void setAlternator(int alternator) {
+		this.alternator = alternator;
+	}
+
+	public int getSuspension() {
+		return suspension;
+	}
+
+	public void setSuspension(int suspension) {
+		this.suspension = suspension;
 	}
 
 }
