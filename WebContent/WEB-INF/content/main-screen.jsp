@@ -78,6 +78,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
   opacity: 0.8;
 }
 
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
 /* Add a red background color to the cancel button */
 .form-container .cancel {
   background-color: red;
@@ -104,39 +115,39 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <tr>
     <td><button onclick="openFormAlternator()">Alternator</button></td>
     <td> <s:property value = "alternator"/></td> 
-    <td>50</td>
+    <td><s:property value = "alternatorThreshold"/></td>
   </tr>
   <tr>
     <td><button onclick="openFormAxleShaft()">Axle Shaft</button></td>
     <td> <s:property value = "axleShaft"/></td> 
-    <td>50</td>
+    <td><s:property value = "axleShaftThreshold"/></td>
   </tr>
   <tr>
     <td><button onclick="openFormBrakePads()">Brake Pads</button></td>
     <td> <s:property value = "brakePads"/></td> 
-    <td>50</td>
+    <td><s:property value = "brakePadsThreshold"/></td>
   </tr>
   <tr>
     <td><button onclick="openFormClutch()">Clutch</button></td>
     <td> <s:property value = "clutch"/></td> 
-    <td>50</td>
+    <td> <s:property value = "clutchThreshold"/></td> 
   </tr>
   <tr>
     <td><button onclick="openFormEngine()">Engine</button></td>
     <td> <s:property value = "engine"/></td> 
-    <td>50</td>
+    <td> <s:property value = "engineThreshold"/></td> 
   </tr>
   <tr>
     <td><button onclick="openFormSuspension()">Suspension</button></td>
     <td> <s:property value = "suspension"/></td> 
-    <td>50</td>
+    <td> <s:property value = "suspensionThreshold"/></td> 
   </tr>
 </table>
 
 <div class="form-popup" id="formAlternator">
 	<s:form class="form-container">
 		<h3>Alternator</h3>
- 		<s:textfield name = "alternator" type = "number" min = "1"/>
+ 		<s:textfield name = "alternator" type = "number" min = "%{alternatorThreshold}"/>
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
@@ -144,7 +155,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="form-popup" id="formAxleShaft">
 	<s:form class="form-container">
 		<h3>Axle Shaft</h3>
- 		<s:textfield name = "axleShaft" type = "number" min = "1"/>
+ 		<s:textfield name = "axleShaft" type = "number" min = "%{axleShaftThreshold}"/>
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
@@ -152,34 +163,40 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="form-popup" id="formBrakePads">
 	<s:form class="form-container">
 		<h3>Brake Pads</h3>
- 		<s:textfield name = "brakePads" type = "number" min = "1"/>
+ 		<s:textfield name = "brakePads" type = "number" min = "%{brakePadsThreshold}"/>
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
 </div><div class="form-popup" id="formClutch">
 	<s:form class="form-container">
 		<h3>Clutch</h3>
- 		<s:textfield name = "clutch" type = "number" min = "1"/>
+ 		<s:textfield name = "clutch" type = "number" min = "%{clutchThreshold}"/>
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
 </div><div class="form-popup" id="formEngine">
 	<s:form class="form-container">
 		<h3>Engine</h3>
- 		<s:textfield name = "engine" type = "number" min = "1"/>
+ 		<s:textfield name = "engine" type = "number" min = "%{engineThreshold}"/>
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
 </div><div class="form-popup" id="formSuspension">
 	<s:form class="form-container">
 		<h3>Suspension</h3>
- 		<s:textfield name = "suspension" type = "number" min = "1"/>
+ 		<s:textfield name = "suspension" type = "number" min = "%{suspensionThreshold}" />
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
 </div>
 
 <script>
+
+
+function checkValue() {
+	
+}
+
 
 function closeForms() {
 	var elements = document.getElementsByClassName("form-popup")
