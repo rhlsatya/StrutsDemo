@@ -13,9 +13,6 @@
  
  
 <title>Main Screen</title>
-
-
-
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
@@ -106,6 +103,13 @@ th, td {
 
 </head>
 <body>
+
+
+
+
+
+
+
 
         
 <table class = "table">

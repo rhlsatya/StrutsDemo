@@ -11,21 +11,16 @@ public class MainScreen extends ActionSupport {
 	private static int clutch = 52;
 	private static int alternator = 70;
 	private static int suspension = 90;
-	private static int suspensionThreshold = 50;
-	private static int brakePadsThreshold = 40;
-	private static int axleShaftThreshold = 30;
-	private static int engineThreshold = 20;
-	private static int clutchThreshold = 10;
-	private static int alternatorThreshold = 25;
+//	private static int suspensionThreshold = 50;
+//	private static int brakePadsThreshold = 40;
+//	private static int axleShaftThreshold = 30;
+//	private static int engineThreshold = 20;
+//	private static int clutchThreshold = 10;
+//	private static int alternatorThreshold = 25;
+	private static ThresholdEditAction thresholdEditAction = new ThresholdEditAction();;
 
 	@Override
 	public String execute() throws Exception {
-//		CalculationService calculationService = new CalculationService();
-//		//System.out.println("before: " +total);
-//		int now =  calculationService.add(total, enteredNumber);
-//		
-//		total = now;
-		//System.out.println("after: " +total);
 		return SUCCESS;
 	}
 
@@ -78,27 +73,28 @@ public class MainScreen extends ActionSupport {
 	}
 
 	public int getSuspensionThreshold() {
-		return suspensionThreshold;
+		
+		return thresholdEditAction.getSuspensionThreshold();
 	}
 
 	public int getBrakePadsThreshold() {
-		return brakePadsThreshold;
+		return thresholdEditAction.getBrakePadsThreshold();
 	}
 
 	public int getAxleShaftThreshold() {
-		return axleShaftThreshold;
+		return thresholdEditAction.getAxleShaftThreshold();
 	}
 
 	public int getEngineThreshold() {
-		return engineThreshold;
+		return thresholdEditAction.getEngineThreshold();
 	}
 
 	public int getClutchThreshold() {
-		return clutchThreshold;
+		return thresholdEditAction.getClutchThreshold();
 	}
 
 	public int getAlternatorThreshold() {
-		return alternatorThreshold;
+		return thresholdEditAction.getAlternatorThreshold();
 	}
 
 }
