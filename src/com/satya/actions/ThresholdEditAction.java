@@ -1,8 +1,8 @@
 package com.satya.actions;
 
-import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class ThresholdEdit implements Action {
+public class ThresholdEditAction extends ActionSupport {
 
 	private String message;
 
@@ -11,7 +11,7 @@ public class ThresholdEdit implements Action {
 		
 		setMessage("babababa");
 		
-		return "success";
+		return SUCCESS;
 	}
 
 	public String getMessage() {

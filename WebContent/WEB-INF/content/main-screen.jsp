@@ -24,22 +24,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .open-button {
   background-color: #555;
   color: white;
-  padding: 16px 20px;
+  padding: 13px 15px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
   position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
+  bottom: 73px;
+  right: 52%;
+  width: 200px;
 }
 
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
   position: fixed;
-  bottom: 0;
-  right: 15px;
+  bottom: 12px;
+  right: 95px;
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
@@ -78,17 +78,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
   opacity: 0.8;
 }
 
-.btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
 /* Add a red background color to the cancel button */
 .form-container .cancel {
   background-color: red;
@@ -98,56 +87,75 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+.table tr:nth-child(even) {background-color: #f2f2f2;}
+
 </style>
-
-
 
 </head>
 <body>
- <h1>Enter Number</h1>
- 
- <table>
+
+        
+<table class = "table">
+ <thead>
   <tr>
     <th>Part Name</th>
     <th>In Stock</th> 
     <th>Minimum Stock Threshold</th>
   </tr>
+ </thead>
+ <tbody>
   <tr>
-    <td><button onclick="openFormAlternator()">Alternator</button></td>
+    <td style= "cursor:pointer" onClick="openFormAlternator()">Alternator</td>
     <td> <s:property value = "alternator"/></td> 
     <td><s:property value = "alternatorThreshold"/></td>
   </tr>
   <tr>
-    <td><button onclick="openFormAxleShaft()">Axle Shaft</button></td>
+    <td style= "cursor:pointer" onClick="openFormAxleShaft()">Axle Shaft</td>
     <td> <s:property value = "axleShaft"/></td> 
     <td><s:property value = "axleShaftThreshold"/></td>
   </tr>
   <tr>
-    <td><button onclick="openFormBrakePads()">Brake Pads</button></td>
+    <td style= "cursor:pointer" onClick="openFormBrakePads()">Brake Pads</td>
     <td> <s:property value = "brakePads"/></td> 
     <td><s:property value = "brakePadsThreshold"/></td>
   </tr>
   <tr>
-    <td><button onclick="openFormClutch()">Clutch</button></td>
+    <td style= "cursor:pointer" onClick="openFormClutch()">Clutch</td>
     <td> <s:property value = "clutch"/></td> 
     <td> <s:property value = "clutchThreshold"/></td> 
   </tr>
   <tr>
-    <td><button onclick="openFormEngine()">Engine</button></td>
+    <td style= "cursor:pointer" onClick="openFormEngine()">Engine</td>
     <td> <s:property value = "engine"/></td> 
     <td> <s:property value = "engineThreshold"/></td> 
   </tr>
   <tr>
-    <td><button onclick="openFormSuspension()">Suspension</button></td>
+    <td style= "cursor:pointer" onClick="openFormSuspension()">Suspension</td>
     <td> <s:property value = "suspension"/></td> 
     <td> <s:property value = "suspensionThreshold"/></td> 
   </tr>
+ </tbody>
 </table>
+
+<button onclick="window.location.href='satya/threshold-edit'" class = "open-button">Edit Thresholds</button>
 
 <div class="form-popup" id="formAlternator">
 	<s:form class="form-container">
 		<h3>Alternator</h3>
- 		<s:textfield name = "alternator" type = "number" min = "%{alternatorThreshold}"/>
+ 		<s:textfield class = "text-field" name = "alternator" type = "number" min = "%{alternatorThreshold}"/>
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
@@ -155,7 +163,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="form-popup" id="formAxleShaft">
 	<s:form class="form-container">
 		<h3>Axle Shaft</h3>
- 		<s:textfield name = "axleShaft" type = "number" min = "%{axleShaftThreshold}"/>
+ 		<s:textfield class = "text-field" name = "axleShaft" type = "number" min = "%{axleShaftThreshold}"/>
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
@@ -163,39 +171,65 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="form-popup" id="formBrakePads">
 	<s:form class="form-container">
 		<h3>Brake Pads</h3>
- 		<s:textfield name = "brakePads" type = "number" min = "%{brakePadsThreshold}"/>
+ 		<s:textfield class = "text-field" name = "brakePads" type = "number" min = "%{brakePadsThreshold}"/>
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
-</div><div class="form-popup" id="formClutch">
+</div>
+<div class="form-popup" id="formClutch">
 	<s:form class="form-container">
 		<h3>Clutch</h3>
- 		<s:textfield name = "clutch" type = "number" min = "%{clutchThreshold}"/>
+ 		<s:textfield class = "text-field" name = "clutch" type = "number" min = "%{clutchThreshold}"/>
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
-</div><div class="form-popup" id="formEngine">
+</div>
+<div class="form-popup" id="formEngine">
 	<s:form class="form-container">
 		<h3>Engine</h3>
- 		<s:textfield name = "engine" type = "number" min = "%{engineThreshold}"/>
+ 		<s:textfield class = "text-field" name = "engine" type = "number" min = "%{engineThreshold}"/>
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
-</div><div class="form-popup" id="formSuspension">
+</div>
+<div class="form-popup" id="formSuspension">
 	<s:form class="form-container">
 		<h3>Suspension</h3>
- 		<s:textfield name = "suspension" type = "number" min = "%{suspensionThreshold}" />
+ 		<s:textfield class = "text-field" name = "suspension" type = "number" min = "%{suspensionThreshold}" />
  		<s:submit value = "Update" class="btn"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
 </div>
 
 <script>
-
-
-function checkValue() {
 	
-}
+	
+document.addEventListener("DOMContentLoaded", function() {
+    var elements = document.getElementsByClassName("text-field");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+            	
+            	if(e.target.validity.badInput){
+          	      e.target.setCustomValidity('Please Enter an Integer');
+          	      return;
+          	    }
+          	    if(e.target.validity.rangeUnderflow){
+          	      e.target.setCustomValidity('Value Must be Greater than Threshold');
+          	      return;
+          	    }
+          	    if(e.target.validity.valueMissing){
+          	      e.target.setCustomValidity("Value Missing");
+          	      return;
+          	    }
+            }
+        };
+        elements[i].oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
+})
 
 
 function closeForms() {
