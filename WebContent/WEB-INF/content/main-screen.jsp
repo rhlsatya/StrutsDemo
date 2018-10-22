@@ -124,32 +124,32 @@ th, td {
   <tr>
     <td style= "cursor:pointer" onClick="openFormAlternator()">Alternator</td>
     <td> <s:property value = "alternator"/></td> 
-    <td><s:property value = "alternatorThreshold"/></td>
+    <td><span id="alternatorThreshold"><s:property value = "alternatorThreshold"/></span></td>
   </tr>
   <tr>
     <td style= "cursor:pointer" onClick="openFormAxleShaft()">Axle Shaft</td>
     <td> <s:property value = "axleShaft"/></td> 
-    <td><s:property value = "axleShaftThreshold"/></td>
+    <td><span id="axleShaftThreshold"><s:property value = "axleShaftThreshold"/></span></td>
   </tr>
   <tr>
     <td style= "cursor:pointer" onClick="openFormBrakePads()">Brake Pads</td>
     <td> <s:property value = "brakePads"/></td> 
-    <td><s:property value = "brakePadsThreshold"/></td>
+    <td><span id="brakePadsThreshold"><s:property value = "brakePadsThreshold"/></span></td>
   </tr>
   <tr>
     <td style= "cursor:pointer" onClick="openFormClutch()">Clutch</td>
     <td> <s:property value = "clutch"/></td> 
-    <td> <s:property value = "clutchThreshold"/></td> 
+    <td> <span id="clutchThreshold"><s:property value = "clutchThreshold"/></span></td> 
   </tr>
   <tr>
     <td style= "cursor:pointer" onClick="openFormEngine()">Engine</td>
     <td> <s:property value = "engine"/></td> 
-    <td> <s:property value = "engineThreshold"/></td> 
+    <td> <span id="engineThreshold"><s:property value = "engineThreshold"/></span></td> 
   </tr>
   <tr>
     <td style= "cursor:pointer" onClick="openFormSuspension()">Suspension</td>
     <td> <s:property value = "suspension"/></td> 
-    <td> <s:property value = "suspensionThreshold"/></td> 
+    <td> <span id="suspensionThreshold"><s:property value = "suspensionThreshold"/></span></td> 
   </tr>
  </tbody>
 </table>
@@ -159,56 +159,70 @@ th, td {
 <div class="form-popup" id="formAlternator">
 	<s:form class="form-container">
 		<h3>Alternator</h3>
- 		<s:textfield class = "text-field" name = "alternator" type = "number" min = "%{alternatorThreshold}"/>
- 		<s:submit value = "Update" class="btn"/>
+ 		<s:textfield id = "fieldAlternator" class = "text-field" name = "alternator" type = "number" min = "0"/>
+ 		<s:submit value = "Update" class="btn" onClick="thresholdAlert('alternatorThreshold','fieldAlternator')"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
 </div>
 <div class="form-popup" id="formAxleShaft">
 	<s:form class="form-container">
 		<h3>Axle Shaft</h3>
- 		<s:textfield class = "text-field" name = "axleShaft" type = "number" min = "%{axleShaftThreshold}"/>
- 		<s:submit value = "Update" class="btn"/>
+ 		<s:textfield id = "fieldAxleShaft" class = "text-field" name = "axleShaft" type = "number" min = "%{axleShaftThreshold}"/>
+ 		<s:submit value = "Update" class="btn" onClick="thresholdAlert('axleShaftThreshold','fieldAxleShaft')"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
 </div>
 <div class="form-popup" id="formBrakePads">
 	<s:form class="form-container">
 		<h3>Brake Pads</h3>
- 		<s:textfield class = "text-field" name = "brakePads" type = "number" min = "%{brakePadsThreshold}"/>
- 		<s:submit value = "Update" class="btn"/>
+ 		<s:textfield id = "fieldBrakePads" class = "text-field" name = "brakePads" type = "number" min = "0"/>
+ 		<s:submit value = "Update" class="btn" onClick="thresholdAlert('brakePadsThreshold','fieldBrakePads')"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
 </div>
 <div class="form-popup" id="formClutch">
 	<s:form class="form-container">
 		<h3>Clutch</h3>
- 		<s:textfield class = "text-field" name = "clutch" type = "number" min = "%{clutchThreshold}"/>
- 		<s:submit value = "Update" class="btn"/>
+ 		<s:textfield id = "fieldClutch" class = "text-field" name = "clutch" type = "number" min = "0"/>
+ 		<s:submit value = "Update" class="btn" onClick="thresholdAlert('clutchThreshold','fieldClutch')"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
 </div>
 <div class="form-popup" id="formEngine">
 	<s:form class="form-container">
 		<h3>Engine</h3>
- 		<s:textfield class = "text-field" name = "engine" type = "number" min = "%{engineThreshold}"/>
- 		<s:submit value = "Update" class="btn"/>
+ 		<s:textfield id = "fieldEngine" class = "text-field" name = "engine" type = "number" min = "0"/>
+ 		<s:submit value = "Update" class="btn" onClick="thresholdAlert('engineThreshold','fieldEngine')"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
 </div>
 <div class="form-popup" id="formSuspension">
 	<s:form class="form-container">
 		<h3>Suspension</h3>
- 		<s:textfield class = "text-field" name = "suspension" type = "number" min = "%{suspensionThreshold}" />
- 		<s:submit value = "Update" class="btn"/>
+ 		<s:textfield id = "fieldSuspension" class = "text-field" name = "suspension" type = "number" min = "0" />
+ 		<s:submit value = "Update" class="btn" onClick="thresholdAlert('suspensionThreshold','fieldSuspension')"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
 </div>
-
+<%-- <s:property value="suspensionThreshold"/>, "fieldSuspension"  --%>
 <script>
 	
 	
-document.addEventListener("DOMContentLoaded", function() {
+function thresholdAlert( thresholdValue, fieldName ) {
+	console.log(5 + 6);
+	var x = document.getElementById(fieldName).value;
+	var y = document.getElementById(thresholdValue).innerHTML;
+	
+	if(x<y && x>0)
+		alert("Value has been updated to below the Threshold.");
+	
+	console.log(y); 
+	
+	
+}
+	
+	
+/* document.addEventListener("DOMContentLoaded", function() {
     var elements = document.getElementsByClassName("text-field");
     for (var i = 0; i < elements.length; i++) {
         elements[i].oninvalid = function(e) {
@@ -220,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function() {
           	      return;
           	    }
           	    if(e.target.validity.rangeUnderflow){
-          	      e.target.setCustomValidity('Value Must be Greater than Threshold');
+          	      e.target.setCustomValidity('Value Must be Greater than Zero');
           	      return;
           	    }
           	    if(e.target.validity.valueMissing){
@@ -233,7 +247,8 @@ document.addEventListener("DOMContentLoaded", function() {
             e.target.setCustomValidity("");
         };
     }
-})
+}) */
+
 
 
 function closeForms() {

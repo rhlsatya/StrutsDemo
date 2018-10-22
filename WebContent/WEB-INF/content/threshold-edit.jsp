@@ -61,27 +61,27 @@ th, td {
 	</tr>
 	<tr>
 		<td>Alternator </td>
-		<td><s:textfield name="alternatorThreshold" type="number"/></td>
+		<td><s:textfield name="alternatorThreshold" type="number" min = "0"/></td>
 	</tr>
 	<tr>
 		<td>Axle Shaft</td>
-		<td><s:textfield name="axleShaftThreshold" type="number" /></td>
+		<td><s:textfield name="axleShaftThreshold" type="number" min = "0"/></td>
 	</tr>
 	<tr>
 		<td>Brake Pads</td>
-		<td><s:textfield name="brakePadsThreshold" type="number" /></td>
+		<td><s:textfield name="brakePadsThreshold" type="number" min = "0"/></td>
 	</tr>
 	<tr>
 		<td>Clutch</td>
-		<td><s:textfield name="clutchThreshold" type="number" /></td>
+		<td><s:textfield name="clutchThreshold" type="number" min = "0"/></td>
 	</tr>
 	<tr>
 		<td>Engine</td>
-		<td><s:textfield name="engineThreshold" type="number" /></td>
+		<td><s:textfield name="engineThreshold" type="number" min = "0"/></td>
 	</tr>
 	<tr>
 		<td>Suspension</td>
-		<td><s:textfield name="suspensionThreshold" type="number" /></td>
+		<td><s:textfield name="suspensionThreshold" type="number" min = "0"/></td>
 	</tr>
 </table>
 
