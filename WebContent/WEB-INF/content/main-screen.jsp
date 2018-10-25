@@ -103,14 +103,6 @@ th, td {
 
 </head>
 <body>
-
-
-
-
-
-
-
-
         
 <table class = "table">
  <thead>
@@ -167,7 +159,7 @@ th, td {
 <div class="form-popup" id="formAxleShaft">
 	<s:form class="form-container">
 		<h3>Axle Shaft</h3>
- 		<s:textfield id = "fieldAxleShaft" class = "text-field" name = "axleShaft" type = "number" min = "%{axleShaftThreshold}"/>
+ 		<s:textfield id = "fieldAxleShaft" class = "text-field" name = "axleShaft" type = "number" min = "0"/>
  		<s:submit value = "Update" class="btn" onClick="thresholdAlert('axleShaftThreshold','fieldAxleShaft')"/>
  		<button type="button" class="btn cancel" onclick="closeForms()">Close</button>
  	</s:form>
@@ -213,7 +205,7 @@ function thresholdAlert( thresholdValue, fieldName ) {
 	var x = document.getElementById(fieldName).value;
 	var y = document.getElementById(thresholdValue).innerHTML;
 	
-	if(x<y && x>0)
+	if(x<y && x>=0 && typeof x == 'number')
 		alert("Value has been updated to below the Threshold.");
 	
 	console.log(y); 
